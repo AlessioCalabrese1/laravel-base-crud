@@ -4,6 +4,8 @@
 
 @section('main-content')
 <form action="{{ route('comics.store') }}" method="POST">
+    @csrf
+
     <div class="mb-3">
         <label for="comics-title" class="form-label">Title</label>
         <input type="text" class="form-control" id="comics-title">
