@@ -1,7 +1,9 @@
 <div class="card" style="width: 18rem;">
     <img src="{{ $comic->thumb }}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{ $comic->title }}</h5>
+      <a href="{{ route('comics.show', $comic->slug) }}">
+        <h5 class="card-title">{{ $comic->title }}</h5>
+      </a>
       <p class="card-text">{{ $comic->description }}</p>
     </div>
     <ul class="list-group list-group-flush">
