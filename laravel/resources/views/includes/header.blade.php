@@ -8,6 +8,7 @@
         <div>
             <ul class="">
                 <li><a class="" href="{{ route('comics.index') }}">Comics</a></li>
+                <li><a href="{{ route('comics.create') }}" class="btn btn-primary">Aggiungi un fumetto</a></li>
             </ul>
         </div>
     </div>
