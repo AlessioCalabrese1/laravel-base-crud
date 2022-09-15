@@ -37,20 +37,22 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $i = 1;
-        $data = $request->all();
+        $storeData = $request->all();
         $newComic = new Comic();
-        $newComic->title = $data['title'];
-        $newComic->description = $data['description'];
-        $newComic->thumb = $data['thumb'];
-        $newComic->price = $data['price'];
-        $newComic->series = $data['series'];
-        $newComic->sale_date = $data['sale_date'];
-        $newComic->type = $data['type'];
-        $newComic->slug = Str::slug($newComic->title, '-') . '-' . $i;
-        $i = $i + 1;
-        $newComic->save();
-        return redirect()->route('comics.show', $newComic->slug);
+
+        // $newComic->title = $data['title'];
+        // $newComic->description = $data['description'];
+        // $newComic->thumb = $data['thumb'];
+        // $newComic->price = $data['price'];
+        // $newComic->series = $data['series'];
+        // $newComic->sale_date = $data['sale_date'];
+        // $newComic->type = $data['type'];
+
+        $storeData['slug'] = Str::slug($newComic->title, '-');
+        // $newComic->fill($storeData);
+        // $newComic->save();
+        $newComic->create($storeData);
+        return redirect()->route('comics.show', $storeData['slug']);
     }
 
     /**
