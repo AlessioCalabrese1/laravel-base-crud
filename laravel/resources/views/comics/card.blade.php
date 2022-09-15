@@ -1,15 +1,15 @@
-<div class="card" style="width: 18rem;">
-    <img src="{{ $comic->thumb }}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <a href="{{ route('comics.show', $comic->slug) }}">
-        <h5 class="card-title">{{ $comic->title }}</h5>
-      </a>
-      <p class="card-text">{{ $comic->description }}</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{ $comic->price }}</li>
-      <li class="list-group-item">{{ $comic->series }}</li>
-      <li class="list-group-item">{{ $comic->sale_date }}</li>
-      <li class="list-group-item">{{ $comic->type }}</li>
-    </ul>
+<div class="card p-0" style="width: 18rem;">
+  <div class="img-container">
+    <a href="{{ route('comics.show', $comic->id) }}">
+      <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }}">
+    </a>
   </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ $comic->title }}</h5>
+    <div class="d-flex justify-content-between">
+      <a class="btn btn-success" href="{{ route('comics.edit', $comic->id) }}">Modifica</a>
+      <a class="btn btn-danger">Elimina</a>
+    </div>
+  </div>
+</div>

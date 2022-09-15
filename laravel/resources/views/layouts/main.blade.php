@@ -10,9 +10,14 @@
     <title>Comics | @yield('title')</title>
 </head>
 <body>
-    @include('includes.header')
-
-    @yield('main-content')
+    <header>
+        @include('includes.header')
+    </header>
+    
+    <main>
+        @yield('main-content')
+    </main>
+    
 
     @include('includes.footer')
 </body>

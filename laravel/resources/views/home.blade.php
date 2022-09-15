@@ -3,5 +3,5 @@
 @section('title', 'home')
 
 @section('main-content')
-    <h1>Sei nella home!</h1>
+    <h1>Seleziona una delle opzioni presenti a inizio pagina!</h1>
 @endsection

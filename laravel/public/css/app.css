@@ -1,0 +1,33 @@
+main {
+  width: 75%;
+  margin: 100px auto;
+  text-align: center;
+  margin-top: 85px;
+}
+
+header {
+  background-color: black;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+header nav {
+  padding: 20px;
+}
+header ul {
+  list-style: none;
+  margin: 0;
+}
+header ul li {
+  display: inline-block;
+  margin-left: 10px;
+}
+header a {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+}
