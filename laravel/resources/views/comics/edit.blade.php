@@ -37,7 +37,11 @@
 
     <div class="d-flex justify-content-between">
         <button type="submit" class="btn btn-success">Modifica</button>
-        <a class="btn btn-danger">Elimina</a>
+        <form action="{{ route('comics.destroy', $comic->id) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Cancella</button>
+        </form>
     </div>
 </form>
 @endsection
