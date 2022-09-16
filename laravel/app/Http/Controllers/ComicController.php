@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -37,6 +38,14 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $validateData = $request->validate([
+            'title' => 'required|unique:comics|max:100',
+            'description' => 'required|min:50|max:800',
+            'thumb' => 'required|active_url',
+            'price' => 'required|numeric',
+            'sale_date' => 'required|date',
+            'type' => 'required|min:5|max:20',
+        ]);
         $storeData = $request->all();
         $newComic = new Comic();
 
@@ -89,6 +98,18 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validateData = $request->validate([
+            'title' => [
+                'required',
+                Rule::unique('comics')->ignore($id),
+                'max:100'
+            ],
+            'description' => 'required|min:50|max:800',
+            'thumb' => 'required|active_url',
+            'price' => 'required|numeric',
+            'sale_date' => 'required|date',
+            'type' => 'required|min:5|max:20',
+        ]);
         $sentData = $request->all();
         $comic = Comic::findOrFail($id);
         $sentData['slug'] = Str::slug($sentData['title'], '-') . '-' . $comic->id;

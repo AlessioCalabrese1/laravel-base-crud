@@ -3,12 +3,22 @@
 @section('title', 'Add')
 
 @section('main-content')
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <form action="{{ route('comics.store') }}" method="post">
     @csrf
 
     <div class="mb-3">
         <label for="comics-title" class="form-label">Title</label>
-        <input type="text" class="form-control" name="title" id="comics-title">
+        <input type="text" class="form-control" name="title" id="comics-title" value="{{ old('title') }}">
     </div>
     <div class="mb-3">
         <label for="comics-description" class="form-label">Description</label>
@@ -28,7 +38,7 @@
     </div>
     <div class="mb-3">
         <label for="comics-sale-date" class="form-label">Sale Date</label>
-        <input type="text" class="form-control" name="sale_date" id="comics-sale-date">
+        <input type="date" class="form-control" name="sale_date" id="comics-sale-date">
     </div>
     <div class="mb-3">
         <label for="comics-type" class="form-label">Type</label>
